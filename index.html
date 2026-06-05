@@ -3,364 +3,943 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Desenvolvimento de sites, sistemas e lojas virtuais de alta performance.">
-<meta name="keywords" content="desenvolvedor, full stack, site profissional, landing page, loja virtual">
-<title>Oliver Araújo | Desenvolvedor Full Stack & Especialista Digital</title>
+<title>Oliver CMS — Painel Administrativo</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- NAVBAR -->
-<nav id="navbar">
-  <div class="nav-inner">
-    <div class="nav-brand"><span>Oliver</span> Araújo</div>
-    <div class="nav-links" id="nav-links">
-      <a href="#services">Serviços</a>
-      <a href="#projects">Portfólio</a>
-      <a href="#shop">Loja</a>
-      <a href="#contact">Contato</a>
-      <a href="#contact" class="nav-cta" id="nav-cta-text">Solicitar Orçamento</a>
-    </div>
-    <button class="nav-mobile-btn" onclick="toggleMobileNav()">☰</button>
-  </div>
-</nav>
+<div id="app">
 
-<!-- HERO -->
-<section id="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-grid-overlay"></div>
-  <div class="hero-content">
-    <div class="hero-badge" id="hero-badge-el">🚀 Disponível para novos projetos</div>
-    <h1 id="hero-h1">Soluções Digitais de<br><span class="gradient-text">Alta Performance</span></h1>
-    <p id="hero-sub">Sites, sistemas e lojas que geram resultados reais para o seu negócio</p>
-    <div class="hero-btns">
-      <a href="#contact" class="btn-hero-primary" id="hero-cta1-btn">
-        <span>💬</span> <span id="hero-cta1-text">Solicitar Orçamento Grátis</span>
-      </a>
-      <a href="#projects" class="btn-hero-secondary" id="hero-cta2-btn">
-        <span id="hero-cta2-text">Ver Portfólio</span> <span>→</span>
-      </a>
-    </div>
-    <div class="hero-stats">
-      <div class="hero-stat-item">
-        <div class="hero-stat-number" id="hero-stat1-el">50+</div>
-        <div class="hero-stat-label">Clientes</div>
-      </div>
-      <div class="hero-stat-item">
-        <div class="hero-stat-number" id="hero-stat2-el">100%</div>
-        <div class="hero-stat-label">Satisfação</div>
-      </div>
-      <div class="hero-stat-item">
-        <div class="hero-stat-number" id="hero-stat3-el">5+</div>
-        <div class="hero-stat-label">Anos de Experiência</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SERVICES -->
-<section id="services" class="section">
-  <div class="container">
-    <div style="text-align:center;margin-bottom:8px">
-      <span class="section-tag">O que eu faço</span>
-    </div>
-    <h2 class="section-title">Serviços <span class="gradient-text">Premium</span></h2>
-    <p class="section-sub">Soluções digitais completas, do planejamento à entrega, com foco em resultado</p>
-    <div class="services-grid reveal" id="services-grid">
-      <!-- populated by JS -->
-    </div>
-  </div>
-</section>
-
-<!-- PROJECTS -->
-<section id="projects" class="section">
-  <div class="container">
-    <div style="text-align:center;margin-bottom:8px">
-      <span class="section-tag">Portfólio</span>
-    </div>
-    <h2 class="section-title">Projetos de <span class="gradient-text">Alto Impacto</span></h2>
-    <p class="section-sub">Cada projeto entregado com dados reais de performance e resultado</p>
-    <div class="projects-grid reveal" id="projects-grid">
-      <!-- populated by JS -->
-    </div>
-  </div>
-</section>
-
-<!-- STATS -->
-<section id="stats-section" class="section">
-  <div class="container">
-    <div class="stats-grid reveal">
-      <div>
-        <div class="stat-number">50+</div>
-        <div class="stat-label-pub">Projetos entregues</div>
-      </div>
-      <div>
-        <div class="stat-number">R$2M+</div>
-        <div class="stat-label-pub">Gerado para clientes</div>
-      </div>
-      <div>
-        <div class="stat-number">98%</div>
-        <div class="stat-label-pub">Clientes satisfeitos</div>
-      </div>
-      <div>
-        <div class="stat-number">5+</div>
-        <div class="stat-label-pub">Anos de experiência</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SHOP -->
-<section id="shop" class="section">
-  <div class="container">
-    <div style="text-align:center;margin-bottom:8px">
-      <span class="section-tag">Loja</span>
-    </div>
-    <h2 class="section-title" id="shop-title-el">Oliver <span class="gradient-text">Store</span></h2>
-    <p class="section-sub" id="shop-slogan-el">Os melhores produtos com entrega garantida</p>
-
-    <div class="shop-header-bar reveal">
-      <input type="text" class="shop-search" id="shop-search" placeholder="🔍 Buscar produto..." oninput="filterShop()">
-      <div style="font-size:14px;color:var(--sub)" id="shop-shipping-el">Frete grátis acima de R$100</div>
+  <!-- SIDEBAR -->
+  <aside id="sidebar">
+    <div class="sidebar-logo">
+      <div class="logo-icon">O</div>
+      <div class="logo-text"><span>Oliver</span> CMS</div>
     </div>
 
-    <div class="shop-grid" id="shop-grid">
-      <div style="grid-column:1/-1;text-align:center;padding:60px;color:var(--muted)">
-        <div style="font-size:48px;margin-bottom:16px">🛒</div>
-        <div style="font-size:16px">Em breve novos produtos!</div>
-        <div style="font-size:13px;margin-top:8px">Adicione produtos pelo painel administrativo.</div>
+    <nav class="sidebar-nav">
+      <div class="sidebar-section-title">Geral</div>
+      <div class="nav-item active" data-panel="dashboard">
+        <span class="nav-icon">📊</span>
+        <span class="nav-label">Dashboard</span>
       </div>
-    </div>
-  </div>
-</section>
 
-<!-- TESTIMONIALS -->
-<section id="testimonials" class="section">
-  <div class="container">
-    <div style="text-align:center;margin-bottom:8px">
-      <span class="section-tag">Depoimentos</span>
-    </div>
-    <h2 class="section-title">O que dizem os <span class="gradient-text">Clientes</span></h2>
-    <p class="section-sub">Resultados reais de quem já trabalhou comigo</p>
-    <div class="testi-grid reveal">
-      <div class="testi-card">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">"O Oliver entregou exatamente o que precisávamos. Nossa loja virtual aumentou as vendas em 47% no primeiro mês após o lançamento. Profissional incrível!"</p>
-        <div class="testi-author">
-          <div class="testi-avatar">CM</div>
-          <div>
-            <div class="testi-name">Carlos Mendes</div>
-            <div class="testi-role">CEO · Mendes Store</div>
-          </div>
-        </div>
+      <div class="sidebar-section-title">Conteúdo</div>
+      <div class="nav-item" data-panel="editor">
+        <span class="nav-icon">🎨</span>
+        <span class="nav-label">Editor Visual</span>
       </div>
-      <div class="testi-card">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">"Precisava de um sistema de gestão e o Oliver criou algo que superou todas as expectativas. Reduziu nosso tempo operacional em 70%. Recomendo muito!"</p>
-        <div class="testi-author">
-          <div class="testi-avatar">AL</div>
-          <div>
-            <div class="testi-name">Ana Lima</div>
-            <div class="testi-role">Diretora · Tech Solutions</div>
-          </div>
-        </div>
+      <div class="nav-item" data-panel="projects">
+        <span class="nav-icon">💼</span>
+        <span class="nav-label">Projetos</span>
       </div>
-      <div class="testi-card">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">"Landing page impecável! Em 3 semanas já tinhamos 380% mais leads qualificados. O investimento se pagou na primeira semana. Oliver é top!"</p>
-        <div class="testi-author">
-          <div class="testi-avatar">RS</div>
-          <div>
-            <div class="testi-name">Rafael Souza</div>
-            <div class="testi-role">Fundador · RS Marketing</div>
-          </div>
+      <div class="nav-item" data-panel="services">
+        <span class="nav-icon">⚙️</span>
+        <span class="nav-label">Serviços</span>
+      </div>
+
+      <div class="sidebar-section-title">Loja</div>
+      <div class="nav-item" data-panel="shop">
+        <span class="nav-icon">🛒</span>
+        <span class="nav-label">Dropshipping</span>
+      </div>
+      <div class="nav-item" data-panel="orders">
+        <span class="nav-icon">📦</span>
+        <span class="nav-label">Pedidos</span>
+        <span class="nav-badge" id="orders-badge">0</span>
+      </div>
+
+      <div class="sidebar-section-title">Vendas</div>
+      <div class="nav-item" data-panel="crm">
+        <span class="nav-icon">🧲</span>
+        <span class="nav-label">CRM / Leads</span>
+        <span class="nav-badge" id="crm-badge">0</span>
+      </div>
+      <div class="nav-item" data-panel="chatbot">
+        <span class="nav-icon">🤖</span>
+        <span class="nav-label">Chatbot IA</span>
+      </div>
+
+      <div class="sidebar-section-title">Config</div>
+      <div class="nav-item" data-panel="settings">
+        <span class="nav-icon">🔧</span>
+        <span class="nav-label">Configurações</span>
+      </div>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="user-card">
+        <div class="user-avatar">O</div>
+        <div class="user-info">
+          <div class="user-name">Oliver Araújo</div>
+          <div class="user-role">Administrador</div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </aside>
 
-<!-- CONTACT -->
-<section id="contact" class="section">
-  <div class="container">
-    <div class="contact-grid">
-      <div class="contact-info reveal">
-        <span class="section-tag">Contato</span>
-        <h3 style="margin-top:12px">Vamos criar algo <span class="gradient-text">incrível juntos</span></h3>
-        <p>Descreva seu projeto e receba uma proposta personalizada. Atendo desde freelancers até grandes empresas.</p>
+  <!-- MAIN -->
+  <div id="main">
 
-        <div class="contact-item">
-          <span class="contact-icon">📞</span>
-          <div>
-            <div style="font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px">Telefone / WhatsApp</div>
-            <div id="contact-phone-el" style="font-weight:600">(00) 00000-0000</div>
-          </div>
-        </div>
-
-        <div class="contact-item">
-          <span class="contact-icon">📧</span>
-          <div>
-            <div style="font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px">Email</div>
-            <div id="contact-email-el" style="font-weight:600">oliver@email.com</div>
-          </div>
-        </div>
-
-        <div class="contact-item">
-          <span class="contact-icon">📍</span>
-          <div>
-            <div style="font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px">Localização</div>
-            <div id="contact-address-el" style="font-weight:600">Brasil — Atendimento Online</div>
-          </div>
-        </div>
-
-        <div class="contact-item">
-          <span class="contact-icon">🕐</span>
-          <div>
-            <div style="font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px">Horário</div>
-            <div id="contact-hours-el" style="font-weight:600">Seg–Sex, 9h às 18h</div>
-          </div>
-        </div>
-
-        <div style="display:flex;gap:12px;margin-top:28px">
-          <a id="wa-link" href="#" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#25d366;color:white;padding:12px 20px;border-radius:10px;font-size:14px;font-weight:600">
-            💬 WhatsApp
-          </a>
-          <a id="email-link" href="#" style="display:inline-flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--border);color:var(--text);padding:12px 20px;border-radius:10px;font-size:14px;font-weight:600">
-            📧 Email
-          </a>
-        </div>
+    <!-- TOPBAR -->
+    <div id="topbar">
+      <button class="btn btn-ghost btn-sm" id="menu-toggle" style="display:none">☰</button>
+      <div class="topbar-title" id="topbar-title">Dashboard</div>
+      <div class="topbar-actions">
+        <a href="../site/index.html" target="_blank" class="btn btn-ghost btn-sm">👁 Ver Site</a>
+        <button class="btn btn-primary btn-sm" onclick="saveAll()">💾 Salvar Tudo</button>
       </div>
+    </div>
 
-      <div class="contact-form reveal" style="transition-delay:0.15s">
-        <h3>Solicitar Diagnóstico <span class="gradient-text">Grátis</span></h3>
-        <form id="contact-form" onsubmit="submitContact(event)">
-          <div class="form-row">
-            <div class="form-field">
-              <label>Nome</label>
-              <input type="text" placeholder="Seu nome" required id="cf-name">
-            </div>
-            <div class="form-field">
-              <label>WhatsApp</label>
-              <input type="tel" placeholder="(00) 00000-0000" id="cf-phone">
+    <!-- CONTENT AREA -->
+    <div id="content">
+
+      <!-- ====================== DASHBOARD ====================== -->
+      <div id="panel-dashboard" class="panel active">
+        <div class="breadcrumb">Oliver CMS <span>/ Dashboard</span></div>
+
+        <div class="grid-4" style="margin-bottom:24px">
+          <div class="stat-card">
+            <div class="stat-icon blue">🧲</div>
+            <div>
+              <div class="stat-value" id="stat-leads">0</div>
+              <div class="stat-label">Leads Captados</div>
+              <div class="stat-trend up">↑ Esta semana</div>
             </div>
           </div>
-          <div class="form-field">
-            <label>Email</label>
-            <input type="email" placeholder="seu@email.com" id="cf-email">
+          <div class="stat-card">
+            <div class="stat-icon green">🛒</div>
+            <div>
+              <div class="stat-value" id="stat-products">0</div>
+              <div class="stat-label">Produtos na Loja</div>
+              <div class="stat-trend up">↑ Dropshipping</div>
+            </div>
           </div>
-          <div class="form-field">
-            <label>Tipo de Projeto</label>
-            <select id="cf-type">
-              <option value="">Selecione...</option>
-              <option>Site / Landing Page</option>
-              <option>Loja Virtual / E-commerce</option>
-              <option>Sistema / Plataforma</option>
-              <option>Aplicativo Mobile</option>
-              <option>Integração / API</option>
-              <option>Consultoria</option>
-              <option>Outro</option>
-            </select>
+          <div class="stat-card">
+            <div class="stat-icon orange">💼</div>
+            <div>
+              <div class="stat-value" id="stat-projects">0</div>
+              <div class="stat-label">Projetos</div>
+              <div class="stat-trend up">↑ Portfólio</div>
+            </div>
           </div>
-          <div class="form-field">
-            <label>Orçamento Estimado</label>
-            <select id="cf-budget">
-              <option value="">Selecione...</option>
-              <option>Até R$1.000</option>
-              <option>R$1.000 – R$3.000</option>
-              <option>R$3.000 – R$8.000</option>
-              <option>R$8.000 – R$20.000</option>
-              <option>Acima de R$20.000</option>
-            </select>
+          <div class="stat-card">
+            <div class="stat-icon purple">📦</div>
+            <div>
+              <div class="stat-value" id="stat-orders">0</div>
+              <div class="stat-label">Pedidos</div>
+              <div class="stat-trend up">↑ Hoje</div>
+            </div>
           </div>
-          <div class="form-field">
-            <label>Mensagem</label>
-            <textarea placeholder="Descreva seu projeto..." id="cf-message"></textarea>
-          </div>
-          <button type="submit" class="submit-btn">🚀 Solicitar Diagnóstico Grátis</button>
-          <div id="form-success" style="display:none;margin-top:12px;background:rgba(6,214,160,0.1);border:1px solid rgba(6,214,160,0.3);color:#06d6a0;padding:12px;border-radius:8px;font-size:14px;text-align:center">
-            ✅ Mensagem enviada! Entrarei em contato em breve.
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-</section>
+        </div>
 
-<!-- FOOTER -->
-<footer id="footer">
-  <div class="footer-inner">
-    <div class="footer-grid">
-      <div>
-        <div class="footer-brand-name"><span>Oliver</span> Araújo</div>
-        <p class="footer-bio" id="footer-bio-el">Desenvolvedor apaixonado por criar experiências digitais de alto impacto.</p>
-        <div style="display:flex;gap:12px;margin-top:16px">
-          <a id="footer-instagram" href="#" style="color:var(--muted);font-size:13px">Instagram</a>
-          <a id="footer-linkedin" href="#" style="color:var(--muted);font-size:13px">LinkedIn</a>
-          <a id="footer-github" href="#" style="color:var(--muted);font-size:13px">GitHub</a>
+        <div class="grid-2">
+          <div class="card">
+            <div class="card-header">
+              <div class="card-title">Leads Recentes</div>
+              <button class="btn btn-ghost btn-sm" onclick="goPanel('crm')">Ver Todos</button>
+            </div>
+            <div id="dash-leads-list">
+              <p style="color:var(--text-muted);font-size:13px;">Nenhum lead ainda. O chatbot do site captura automaticamente.</p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <div class="card-title">Últimos Pedidos</div>
+              <button class="btn btn-ghost btn-sm" onclick="goPanel('orders')">Ver Todos</button>
+            </div>
+            <div id="dash-orders-list">
+              <p style="color:var(--text-muted);font-size:13px;">Nenhum pedido ainda.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:20px">
+          <div class="card-header">
+            <div class="card-title">🚀 Início Rápido</div>
+          </div>
+          <div class="grid-3">
+            <div style="padding:16px;background:var(--bg-hover);border-radius:var(--radius-sm);cursor:pointer" onclick="goPanel('editor')">
+              <div style="font-size:24px;margin-bottom:8px">🎨</div>
+              <div style="font-weight:600;font-size:14px">Editar Layout do Site</div>
+              <div style="font-size:12px;color:var(--text-muted);margin-top:4px">Cores, fontes, textos, seções</div>
+            </div>
+            <div style="padding:16px;background:var(--bg-hover);border-radius:var(--radius-sm);cursor:pointer" onclick="goPanel('shop')">
+              <div style="font-size:24px;margin-bottom:8px">🛒</div>
+              <div style="font-weight:600;font-size:14px">Adicionar Produtos</div>
+              <div style="font-size:12px;color:var(--text-muted);margin-top:4px">Mercado Livre, Shopee e mais</div>
+            </div>
+            <div style="padding:16px;background:var(--bg-hover);border-radius:var(--radius-sm);cursor:pointer" onclick="goPanel('crm')">
+              <div style="font-size:24px;margin-bottom:8px">🧲</div>
+              <div style="font-weight:600;font-size:14px">Gerenciar Leads</div>
+              <div style="font-size:12px;color:var(--text-muted);margin-top:4px">CRM Kanban integrado</div>
+            </div>
+          </div>
         </div>
       </div>
-      <div>
-        <div class="footer-col-title">Serviços</div>
-        <ul class="footer-links">
-          <li><a href="#services">Sites & Landing Pages</a></li>
-          <li><a href="#services">Sistemas Web</a></li>
-          <li><a href="#services">E-commerce</a></li>
-          <li><a href="#services">APIs & Integrações</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="footer-col-title">Empresa</div>
-        <ul class="footer-links">
-          <li><a href="#hero">Sobre</a></li>
-          <li><a href="#projects">Portfólio</a></li>
-          <li><a href="#testimonials">Depoimentos</a></li>
-          <li><a href="#contact">Contato</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="footer-col-title">Contato</div>
-        <ul class="footer-links">
-          <li id="footer-phone-li" style="color:var(--muted);font-size:14px">(00) 00000-0000</li>
-          <li id="footer-email-li" style="color:var(--muted);font-size:14px">oliver@email.com</li>
-          <li style="color:var(--muted);font-size:14px">Seg–Sex 9h–18h</li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span id="footer-copy">© 2025 Oliver Araújo. Todos os direitos reservados.</span>
-      <span>Feito com ❤️ e muito código</span>
-    </div>
-  </div>
-</footer>
 
-<!-- CHATBOT FLOAT -->
-<div id="chatbot-float">
-  <div id="chat-window">
-    <div class="chat-header">
-      <div class="chat-avatar">🤖</div>
-      <div class="chat-header-info">
-        <div class="chat-header-name" id="chat-bot-name">Olivia</div>
-        <div class="chat-header-status">● Online agora</div>
+      <!-- ====================== EDITOR VISUAL ====================== -->
+      <div id="panel-editor" class="panel">
+        <div class="breadcrumb">Oliver CMS <span>/ Editor Visual</span></div>
+
+        <div class="tabs" id="editor-tabs">
+          <button class="tab-btn active" data-tab="tab-identity">Identidade</button>
+          <button class="tab-btn" data-tab="tab-hero">Hero</button>
+          <button class="tab-btn" data-tab="tab-colors">Cores & Fontes</button>
+          <button class="tab-btn" data-tab="tab-layout">Layout</button>
+          <button class="tab-btn" data-tab="tab-contact">Contato</button>
+          <button class="tab-btn" data-tab="tab-seo">SEO</button>
+        </div>
+
+        <!-- TAB IDENTITY -->
+        <div id="tab-identity" class="tab-content active">
+          <div class="grid-2">
+            <div class="card">
+              <div class="card-title" style="margin-bottom:16px">Dados Pessoais</div>
+              <div class="form-group">
+                <label>Nome Completo</label>
+                <input type="text" class="form-control" id="site-name" value="Oliver Araújo">
+              </div>
+              <div class="form-group">
+                <label>Título / Especialidade</label>
+                <input type="text" class="form-control" id="site-title" value="Desenvolvedor Full Stack & Especialista Digital">
+              </div>
+              <div class="form-group">
+                <label>Subtítulo / Tagline</label>
+                <input type="text" class="form-control" id="site-tagline" value="Transformo ideias em produtos digitais que vendem">
+              </div>
+              <div class="form-group">
+                <label>Sobre Você (bio curta)</label>
+                <textarea class="form-control" id="site-bio">Desenvolvedor apaixonado por criar experiências digitais de alto impacto. Mais de 5 anos construindo plataformas, e-commerces e sistemas escaláveis para empresas e empreendedores.</textarea>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-title" style="margin-bottom:16px">Redes Sociais</div>
+              <div class="form-group">
+                <label>WhatsApp (com DDD)</label>
+                <input type="text" class="form-control" id="site-whatsapp" value="5500000000000">
+              </div>
+              <div class="form-group">
+                <label>Email</label>
+                <input type="email" class="form-control" id="site-email" value="oliver@email.com">
+              </div>
+              <div class="form-group">
+                <label>Instagram</label>
+                <input type="text" class="form-control" id="site-instagram" value="@oliveraraujo">
+              </div>
+              <div class="form-group">
+                <label>LinkedIn</label>
+                <input type="text" class="form-control" id="site-linkedin" value="linkedin.com/in/oliveraraujo">
+              </div>
+              <div class="form-group">
+                <label>GitHub</label>
+                <input type="text" class="form-control" id="site-github" value="github.com/oliveraraujo">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB HERO -->
+        <div id="tab-hero" class="tab-content">
+          <div class="card">
+            <div class="card-title" style="margin-bottom:16px">Seção Hero (topo da landing page)</div>
+            <div class="grid-2">
+              <div>
+                <div class="form-group">
+                  <label>Título Principal</label>
+                  <input type="text" class="form-control" id="hero-h1" value="Soluções Digitais de Alta Performance">
+                </div>
+                <div class="form-group">
+                  <label>Subtítulo</label>
+                  <input type="text" class="form-control" id="hero-sub" value="Sites, sistemas e lojas que geram resultados reais para o seu negócio">
+                </div>
+                <div class="form-group">
+                  <label>Texto do Botão Principal</label>
+                  <input type="text" class="form-control" id="hero-cta1" value="Solicitar Orçamento Grátis">
+                </div>
+                <div class="form-group">
+                  <label>Texto do Botão Secundário</label>
+                  <input type="text" class="form-control" id="hero-cta2" value="Ver Portfólio">
+                </div>
+              </div>
+              <div>
+                <div class="form-group">
+                  <label>Estilo do Hero</label>
+                  <select class="form-control" id="hero-style">
+                    <option value="gradient">Gradiente Animado</option>
+                    <option value="dark">Dark Premium</option>
+                    <option value="particles">Partículas</option>
+                    <option value="mesh">Mesh Gradient</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>Badge de Destaque</label>
+                  <input type="text" class="form-control" id="hero-badge" value="🚀 Disponível para novos projetos">
+                </div>
+                <div class="form-group">
+                  <label>Estatística 1 (ex: 50+ clientes)</label>
+                  <input type="text" class="form-control" id="hero-stat1" value="50+ Clientes">
+                </div>
+                <div class="form-group">
+                  <label>Estatística 2</label>
+                  <input type="text" class="form-control" id="hero-stat2" value="100% Satisfação">
+                </div>
+                <div class="form-group">
+                  <label>Estatística 3</label>
+                  <input type="text" class="form-control" id="hero-stat3" value="5+ Anos de Experiência">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB COLORS -->
+        <div id="tab-colors" class="tab-content">
+          <div class="grid-2">
+            <div class="card">
+              <div class="card-title" style="margin-bottom:16px">Paleta de Cores</div>
+              <div class="form-group">
+                <label>Cor de Destaque (Accent)</label>
+                <div class="color-field">
+                  <input type="color" class="color-preview" id="color-accent" value="#4f6ef7">
+                  <input type="text" class="form-control" id="color-accent-text" value="#4f6ef7" style="flex:1">
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Cor Secundária</label>
+                <div class="color-field">
+                  <input type="color" class="color-preview" id="color-secondary" value="#06d6a0">
+                  <input type="text" class="form-control" id="color-secondary-text" value="#06d6a0" style="flex:1">
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Fundo Principal</label>
+                <div class="color-field">
+                  <input type="color" class="color-preview" id="color-bg" value="#020617">
+                  <input type="text" class="form-control" id="color-bg-text" value="#020617" style="flex:1">
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Cor do Texto</label>
+                <div class="color-field">
+                  <input type="color" class="color-preview" id="color-text" value="#e2e8f0">
+                  <input type="text" class="form-control" id="color-text-text" value="#e2e8f0" style="flex:1">
+                </div>
+              </div>
+
+              <div style="margin-top:16px">
+                <div style="font-size:13px;font-weight:600;margin-bottom:10px;color:var(--text-sub)">TEMAS RÁPIDOS</div>
+                <div class="swatch-grid" id="theme-swatches">
+                  <div class="swatch active" style="background:linear-gradient(135deg,#4f6ef7,#06d6a0)" data-theme="ocean" title="Ocean Blue"></div>
+                  <div class="swatch" style="background:linear-gradient(135deg,#f7644f,#fb923c)" data-theme="fire" title="Fire Red"></div>
+                  <div class="swatch" style="background:linear-gradient(135deg,#a78bfa,#ec4899)" data-theme="purple" title="Purple Rain"></div>
+                  <div class="swatch" style="background:linear-gradient(135deg,#10b981,#06b6d4)" data-theme="emerald" title="Emerald"></div>
+                  <div class="swatch" style="background:linear-gradient(135deg,#f59e0b,#ef4444)" data-theme="sunset" title="Sunset"></div>
+                  <div class="swatch" style="background:linear-gradient(135deg,#e2e8f0,#94a3b8)" data-theme="light" title="Light Mode"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-title" style="margin-bottom:16px">Tipografia</div>
+              <div class="form-group">
+                <label>Fonte Principal</label>
+                <select class="form-control" id="font-main">
+                  <option value="Inter">Inter (Moderno)</option>
+                  <option value="Poppins">Poppins (Amigável)</option>
+                  <option value="Space Grotesk">Space Grotesk (Tech)</option>
+                  <option value="Syne">Syne (Bold)</option>
+                  <option value="DM Sans">DM Sans (Clean)</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Tamanho do Hero (px)</label>
+                <input type="range" min="40" max="80" value="60" id="font-hero-size">
+                <div style="font-size:12px;color:var(--text-muted);margin-top:4px" id="font-hero-size-val">60px</div>
+              </div>
+              <div class="form-group">
+                <label>Peso da Fonte Principal</label>
+                <select class="form-control" id="font-weight">
+                  <option value="400">Regular</option>
+                  <option value="600">Semi-Bold</option>
+                  <option value="700">Bold</option>
+                  <option value="800" selected>Extra-Bold</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Espaçamento entre letras</label>
+                <select class="form-control" id="letter-spacing">
+                  <option value="-0.02em">Compacto (-0.02em)</option>
+                  <option value="0" selected>Normal (0)</option>
+                  <option value="0.02em">Espaçado (0.02em)</option>
+                  <option value="0.05em">Bem Espaçado (0.05em)</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB LAYOUT -->
+        <div id="tab-layout" class="tab-content">
+          <div class="card">
+            <div class="card-title" style="margin-bottom:16px">Visibilidade das Seções</div>
+            <div class="grid-2">
+              <div>
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--border)">
+                  <div style="font-size:14px">🏠 Hero / Apresentação</div>
+                  <label class="toggle"><input type="checkbox" id="section-hero" checked><span class="toggle-slider"></span></label>
+                </div>
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--border)">
+                  <div style="font-size:14px">⚙️ Serviços</div>
+                  <label class="toggle"><input type="checkbox" id="section-services" checked><span class="toggle-slider"></span></label>
+                </div>
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--border)">
+                  <div style="font-size:14px">💼 Projetos / Portfólio</div>
+                  <label class="toggle"><input type="checkbox" id="section-projects" checked><span class="toggle-slider"></span></label>
+                </div>
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 0">
+                  <div style="font-size:14px">🛒 Loja Dropshipping</div>
+                  <label class="toggle"><input type="checkbox" id="section-shop" checked><span class="toggle-slider"></span></label>
+                </div>
+              </div>
+              <div>
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--border)">
+                  <div style="font-size:14px">💬 Depoimentos</div>
+                  <label class="toggle"><input type="checkbox" id="section-testimonials" checked><span class="toggle-slider"></span></label>
+                </div>
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--border)">
+                  <div style="font-size:14px">📊 Estatísticas</div>
+                  <label class="toggle"><input type="checkbox" id="section-stats" checked><span class="toggle-slider"></span></label>
+                </div>
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--border)">
+                  <div style="font-size:14px">🤖 Chatbot Flutuante</div>
+                  <label class="toggle"><input type="checkbox" id="section-chatbot" checked><span class="toggle-slider"></span></label>
+                </div>
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 0">
+                  <div style="font-size:14px">📞 Contato</div>
+                  <label class="toggle"><input type="checkbox" id="section-contact" checked><span class="toggle-slider"></span></label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card" style="margin-top:20px">
+            <div class="card-title" style="margin-bottom:16px">Configurações de Layout</div>
+            <div class="grid-2">
+              <div class="form-group">
+                <label>Largura Máxima do Conteúdo</label>
+                <select class="form-control" id="layout-maxwidth">
+                  <option value="1000px">1000px (Focado)</option>
+                  <option value="1200px" selected>1200px (Padrão)</option>
+                  <option value="1400px">1400px (Wide)</option>
+                  <option value="100%">Full Width</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Estilo dos Cards</label>
+                <select class="form-control" id="card-style">
+                  <option value="glass">Glassmorphism</option>
+                  <option value="solid" selected>Sólido Escuro</option>
+                  <option value="bordered">Com Borda</option>
+                  <option value="flat">Flat</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Animações de Entrada</label>
+                <select class="form-control" id="anim-style">
+                  <option value="fade">Fade In</option>
+                  <option value="slide" selected>Slide Up</option>
+                  <option value="zoom">Zoom In</option>
+                  <option value="none">Sem Animação</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Botão Flutuante de Contato</label>
+                <select class="form-control" id="float-btn">
+                  <option value="whatsapp">WhatsApp</option>
+                  <option value="email">Email</option>
+                  <option value="none">Nenhum</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB CONTACT -->
+        <div id="tab-contact" class="tab-content">
+          <div class="card">
+            <div class="card-title" style="margin-bottom:16px">Informações de Contato Visíveis no Site</div>
+            <div class="grid-2">
+              <div>
+                <div class="form-group">
+                  <label>Telefone / WhatsApp Exibido</label>
+                  <input type="text" class="form-control" id="contact-phone" value="(00) 00000-0000">
+                </div>
+                <div class="form-group">
+                  <label>Email de Contato</label>
+                  <input type="email" class="form-control" id="contact-email" value="oliver@email.com">
+                </div>
+                <div class="form-group">
+                  <label>Endereço / Cidade</label>
+                  <input type="text" class="form-control" id="contact-address" value="Brasil — Atendimento Online">
+                </div>
+              </div>
+              <div>
+                <div class="form-group">
+                  <label>Mensagem do WhatsApp (automática)</label>
+                  <textarea class="form-control" id="wa-message">Olá Oliver! Vim pelo seu site e gostaria de solicitar um orçamento.</textarea>
+                </div>
+                <div class="form-group">
+                  <label>Horário de Atendimento</label>
+                  <input type="text" class="form-control" id="contact-hours" value="Seg–Sex, 9h às 18h">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB SEO -->
+        <div id="tab-seo" class="tab-content">
+          <div class="card">
+            <div class="card-title" style="margin-bottom:16px">SEO & Metatags</div>
+            <div class="form-group">
+              <label>Título da Página (title)</label>
+              <input type="text" class="form-control" id="seo-title" value="Oliver Araújo | Desenvolvedor Full Stack & Especialista Digital">
+            </div>
+            <div class="form-group">
+              <label>Descrição (meta description)</label>
+              <textarea class="form-control" id="seo-desc">Desenvolvimento de sites, sistemas e lojas virtuais de alta performance. Soluções digitais que geram resultado. Solicite seu orçamento!</textarea>
+            </div>
+            <div class="form-group">
+              <label>Palavras-chave</label>
+              <input type="text" class="form-control" id="seo-keywords" value="desenvolvedor, full stack, site profissional, landing page, loja virtual">
+            </div>
+            <div class="alert alert-info" style="margin-top:16px">
+              💡 Após salvar, o arquivo <strong>site/index.html</strong> é atualizado automaticamente com essas metatags.
+            </div>
+          </div>
+        </div>
       </div>
-      <button class="chat-close" onclick="toggleChat()">✕</button>
+
+      <!-- ====================== PROJECTS ====================== -->
+      <div id="panel-projects" class="panel">
+        <div class="breadcrumb">Oliver CMS <span>/ Projetos</span></div>
+        <div class="section-heading">
+          <h2>Projetos do Portfólio</h2>
+          <button class="btn btn-primary" onclick="openModal('modal-project')">+ Novo Projeto</button>
+        </div>
+
+        <div class="product-grid" id="projects-grid">
+          <!-- populated by JS -->
+        </div>
+      </div>
+
+      <!-- ====================== SERVICES ====================== -->
+      <div id="panel-services" class="panel">
+        <div class="breadcrumb">Oliver CMS <span>/ Serviços</span></div>
+        <div class="section-heading">
+          <h2>Serviços Oferecidos</h2>
+          <button class="btn btn-primary" onclick="openModal('modal-service')">+ Novo Serviço</button>
+        </div>
+
+        <div id="services-list">
+          <!-- populated by JS -->
+        </div>
+      </div>
+
+      <!-- ====================== SHOP (DROPSHIPPING) ====================== -->
+      <div id="panel-shop" class="panel">
+        <div class="breadcrumb">Oliver CMS <span>/ Dropshipping</span></div>
+
+        <div class="tabs" id="shop-tabs">
+          <button class="tab-btn active" data-tab="tab-shop-products">Meus Produtos</button>
+          <button class="tab-btn" data-tab="tab-shop-add">Adicionar Produto</button>
+          <button class="tab-btn" data-tab="tab-shop-import">Importar (ML / Shopee)</button>
+          <button class="tab-btn" data-tab="tab-shop-settings">Config Loja</button>
+        </div>
+
+        <!-- Products list -->
+        <div id="tab-shop-products" class="tab-content active">
+          <div class="section-heading">
+            <h2>Produtos na Loja</h2>
+            <div class="toolbar">
+              <input type="text" class="form-control" placeholder="Buscar produto..." style="width:220px" id="shop-search">
+              <select class="form-control" id="shop-filter-platform" style="width:160px">
+                <option value="">Todas Plataformas</option>
+                <option value="mercadolivre">Mercado Livre</option>
+                <option value="shopee">Shopee</option>
+                <option value="manual">Manual</option>
+              </select>
+            </div>
+          </div>
+          <div class="product-grid" id="shop-products-grid"><!-- JS --></div>
+        </div>
+
+        <!-- Add product manually -->
+        <div id="tab-shop-add" class="tab-content">
+          <div class="card" style="max-width:700px">
+            <div class="card-title" style="margin-bottom:20px">Adicionar Produto Manualmente</div>
+            <div class="grid-2">
+              <div class="form-group">
+                <label>Nome do Produto</label>
+                <input type="text" class="form-control" id="prod-name">
+              </div>
+              <div class="form-group">
+                <label>Plataforma</label>
+                <select class="form-control" id="prod-platform">
+                  <option value="mercadolivre">Mercado Livre</option>
+                  <option value="shopee">Shopee</option>
+                  <option value="amazon">Amazon</option>
+                  <option value="manual">Manual</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Preço de Custo (R$)</label>
+                <input type="number" class="form-control" id="prod-cost" placeholder="0.00">
+              </div>
+              <div class="form-group">
+                <label>Preço de Venda (R$)</label>
+                <input type="number" class="form-control" id="prod-price" placeholder="0.00">
+              </div>
+              <div class="form-group">
+                <label>Emoji / Ícone</label>
+                <input type="text" class="form-control" id="prod-emoji" value="📦">
+              </div>
+              <div class="form-group">
+                <label>Categoria</label>
+                <input type="text" class="form-control" id="prod-category" placeholder="ex: Eletrônicos">
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Descrição</label>
+              <textarea class="form-control" id="prod-desc" rows="3" placeholder="Descreva o produto..."></textarea>
+            </div>
+            <div class="form-group">
+              <label>Link do Produto (Mercado Livre / Shopee)</label>
+              <input type="url" class="form-control" id="prod-url" placeholder="https://...">
+            </div>
+            <button class="btn btn-primary" onclick="addProduct()">Adicionar Produto</button>
+          </div>
+        </div>
+
+        <!-- Import -->
+        <div id="tab-shop-import" class="tab-content">
+          <div class="grid-2">
+            <div class="card">
+              <div style="font-size:32px;margin-bottom:12px">🟡</div>
+              <div class="card-title">Mercado Livre</div>
+              <p style="font-size:13px;color:var(--text-muted);margin:12px 0">Cole o link do produto do Mercado Livre e o sistema extrai as informações automaticamente.</p>
+              <div class="form-group">
+                <label>URL do Produto ML</label>
+                <input type="url" class="form-control" id="ml-url" placeholder="https://produto.mercadolivre.com.br/...">
+              </div>
+              <button class="btn btn-primary" onclick="importFromML()">Importar Produto</button>
+            </div>
+
+            <div class="card">
+              <div style="font-size:32px;margin-bottom:12px">🟠</div>
+              <div class="card-title">Shopee</div>
+              <p style="font-size:13px;color:var(--text-muted);margin:12px 0">Cole o link do produto da Shopee e importe direto para sua loja.</p>
+              <div class="form-group">
+                <label>URL do Produto Shopee</label>
+                <input type="url" class="form-control" id="shopee-url" placeholder="https://shopee.com.br/...">
+              </div>
+              <button class="btn btn-primary" onclick="importFromShopee()">Importar Produto</button>
+            </div>
+          </div>
+
+          <div class="alert alert-info" style="margin-top:20px">
+            💡 <strong>Como funciona o Dropshipping:</strong> Quando o cliente comprar, você recebe o pedido aqui no painel e realiza a compra no Mercado Livre / Shopee com o endereço do cliente. A plataforma envia diretamente para ele.
+          </div>
+        </div>
+
+        <!-- Shop settings -->
+        <div id="tab-shop-settings" class="tab-content">
+          <div class="card" style="max-width:600px">
+            <div class="card-title" style="margin-bottom:16px">Configurações da Loja</div>
+            <div class="form-group">
+              <label>Nome da Loja</label>
+              <input type="text" class="form-control" id="shop-name" value="Oliver Store">
+            </div>
+            <div class="form-group">
+              <label>Slogan da Loja</label>
+              <input type="text" class="form-control" id="shop-slogan" value="Os melhores produtos com entrega garantida">
+            </div>
+            <div class="form-group">
+              <label>Margem de Lucro Padrão (%)</label>
+              <input type="number" class="form-control" id="shop-margin" value="30">
+            </div>
+            <div class="form-group">
+              <label>Moeda</label>
+              <select class="form-control" id="shop-currency">
+                <option value="BRL">Real (BRL)</option>
+                <option value="USD">Dólar (USD)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Texto de Frete</label>
+              <input type="text" class="form-control" id="shop-shipping" value="Frete grátis para todo Brasil acima de R$100">
+            </div>
+            <button class="btn btn-primary" onclick="saveShopSettings()">Salvar Configurações</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ====================== ORDERS ====================== -->
+      <div id="panel-orders" class="panel">
+        <div class="breadcrumb">Oliver CMS <span>/ Pedidos</span></div>
+        <div class="section-heading">
+          <h2>Gerenciar Pedidos</h2>
+        </div>
+        <div class="card">
+          <div class="table-wrap">
+            <table id="orders-table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Cliente</th>
+                  <th>Produto</th>
+                  <th>Valor</th>
+                  <th>Status</th>
+                  <th>Data</th>
+                  <th>Ações</th>
+                </tr>
+              </thead>
+              <tbody id="orders-tbody">
+                <!-- JS -->
+              </tbody>
+            </table>
+          </div>
+          <p id="no-orders" style="text-align:center;color:var(--text-muted);padding:40px;font-size:14px">Nenhum pedido ainda. Os pedidos da loja aparecerão aqui.</p>
+        </div>
+      </div>
+
+      <!-- ====================== CRM / LEADS ====================== -->
+      <div id="panel-crm" class="panel">
+        <div class="breadcrumb">Oliver CMS <span>/ CRM</span></div>
+        <div class="section-heading">
+          <h2>CRM — Pipeline de Leads</h2>
+          <div class="toolbar">
+            <button class="btn btn-ghost btn-sm" onclick="exportLeads()">📤 Exportar</button>
+            <button class="btn btn-primary" onclick="openModal('modal-lead')">+ Novo Lead</button>
+          </div>
+        </div>
+
+        <div class="kanban" id="kanban-board">
+          <!-- Columns filled by JS -->
+        </div>
+      </div>
+
+      <!-- ====================== CHATBOT CONFIG ====================== -->
+      <div id="panel-chatbot" class="panel">
+        <div class="breadcrumb">Oliver CMS <span>/ Chatbot IA</span></div>
+
+        <div class="grid-2">
+          <div class="card">
+            <div class="card-title" style="margin-bottom:16px">Configuração do Chatbot</div>
+            <div class="form-group">
+              <label>Nome do Assistente</label>
+              <input type="text" class="form-control" id="bot-name" value="Olivia">
+            </div>
+            <div class="form-group">
+              <label>Mensagem de Boas-vindas</label>
+              <textarea class="form-control" id="bot-welcome">Olá! Sou a Olivia, assistente virtual do Oliver 👋 Como posso te ajudar hoje?</textarea>
+            </div>
+            <div class="form-group">
+              <label>Personalidade / Prompt do Sistema</label>
+              <textarea class="form-control" id="bot-prompt" rows="5">Você é Olivia, assistente de vendas do desenvolvedor Oliver Araújo. Seu objetivo é entender a necessidade do cliente, apresentar os serviços disponíveis e agendar uma reunião ou capturar o contato. Seja simpática, direta e profissional. Responda sempre em português.</textarea>
+            </div>
+            <div class="form-group">
+              <label>Chave da API OpenAI</label>
+              <input type="password" class="form-control" id="bot-apikey" placeholder="sk-...">
+            </div>
+            <div class="form-group">
+              <label>Modelo</label>
+              <select class="form-control" id="bot-model">
+                <option value="gpt-4o-mini">GPT-4o Mini (Rápido, econômico)</option>
+                <option value="gpt-4o">GPT-4o (Inteligente)</option>
+                <option value="gpt-3.5-turbo">GPT-3.5 Turbo (Econômico)</option>
+              </select>
+            </div>
+            <button class="btn btn-primary" onclick="saveBotConfig()">Salvar Configurações do Bot</button>
+          </div>
+
+          <div class="card">
+            <div class="card-title" style="margin-bottom:16px">Teste o Chatbot</div>
+            <div id="test-chat" style="height:320px;overflow-y:auto;background:var(--bg-hover);border-radius:var(--radius-sm);padding:16px;margin-bottom:12px;font-size:13px">
+              <div style="background:var(--bg-card);padding:10px;border-radius:8px;margin-bottom:8px">
+                <strong>Olivia:</strong> Olá! Sou a Olivia, assistente do Oliver 👋 Como posso te ajudar?
+              </div>
+            </div>
+            <div style="display:flex;gap:8px">
+              <input type="text" class="form-control" id="test-input" placeholder="Digite uma mensagem..." onkeypress="if(event.key==='Enter')testChat()">
+              <button class="btn btn-primary" onclick="testChat()">Enviar</button>
+            </div>
+            <div class="alert alert-info" style="margin-top:12px">
+              💡 Configure sua API Key para ativar respostas reais com IA.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ====================== SETTINGS ====================== -->
+      <div id="panel-settings" class="panel">
+        <div class="breadcrumb">Oliver CMS <span>/ Configurações</span></div>
+
+        <div class="grid-2">
+          <div class="card">
+            <div class="card-title" style="margin-bottom:16px">Configurações da Plataforma</div>
+            <div class="form-group">
+              <label>Nome do Painel</label>
+              <input type="text" class="form-control" value="Oliver CMS">
+            </div>
+            <div class="form-group">
+              <label>Senha de Acesso</label>
+              <input type="password" class="form-control" id="admin-password" placeholder="••••••••">
+            </div>
+            <button class="btn btn-primary" onclick="showToast('Configurações salvas!','success')">Salvar</button>
+          </div>
+
+          <div class="card">
+            <div class="card-title" style="margin-bottom:16px">Dados & Backup</div>
+            <p style="font-size:13px;color:var(--text-muted);margin-bottom:16px">Exportar ou importar todos os dados da plataforma (projetos, produtos, leads, configurações).</p>
+            <div style="display:flex;flex-direction:column;gap:10px">
+              <button class="btn btn-ghost" onclick="exportData()">📤 Exportar Dados (JSON)</button>
+              <button class="btn btn-ghost" onclick="document.getElementById('import-file').click()">📥 Importar Dados</button>
+              <input type="file" id="import-file" accept=".json" style="display:none" onchange="importData(event)">
+              <button class="btn btn-danger" onclick="if(confirm('Apagar TODOS os dados?'))resetData()">🗑️ Resetar Plataforma</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /content -->
+  </div><!-- /main -->
+</div><!-- /app -->
+
+<!-- ============================================================
+     MODALS
+     ============================================================ -->
+
+<!-- Project Modal -->
+<div class="modal-overlay" id="modal-project">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-title">Novo Projeto</div>
+      <button class="modal-close" onclick="closeModal('modal-project')">✕</button>
     </div>
-    <div id="chat-messages">
-      <!-- messages rendered by JS -->
+    <div class="form-group">
+      <label>Nome do Projeto</label>
+      <input type="text" class="form-control" id="proj-name" placeholder="Ex: Plataforma E-commerce +37% conversão">
     </div>
-    <div class="chat-input-area">
-      <input type="text" id="chat-input" placeholder="Digite sua mensagem..." onkeypress="if(event.key==='Enter')sendChat()">
-      <button id="chat-send" onclick="sendChat()">➤</button>
+    <div class="form-group">
+      <label>Resultado Gerado (copy forte)</label>
+      <input type="text" class="form-control" id="proj-result" placeholder="Ex: Reduziu custo por lead em 62%">
+    </div>
+    <div class="form-group">
+      <label>Descrição</label>
+      <textarea class="form-control" id="proj-desc" placeholder="Descreva o projeto, tecnologias e resultados..."></textarea>
+    </div>
+    <div class="grid-2">
+      <div class="form-group">
+        <label>Tecnologias</label>
+        <input type="text" class="form-control" id="proj-tech" placeholder="React, Node, MongoDB">
+      </div>
+      <div class="form-group">
+        <label>Emoji / Ícone</label>
+        <input type="text" class="form-control" id="proj-emoji" value="💻">
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Link do Projeto (opcional)</label>
+      <input type="url" class="form-control" id="proj-url" placeholder="https://...">
+    </div>
+    <div style="display:flex;gap:10px;justify-content:flex-end;margin-top:8px">
+      <button class="btn btn-ghost" onclick="closeModal('modal-project')">Cancelar</button>
+      <button class="btn btn-primary" onclick="saveProject()">Salvar Projeto</button>
     </div>
   </div>
-  <button id="chat-toggle" onclick="toggleChat()">
-    💬
-    <span class="chat-pulse"></span>
-  </button>
 </div>
 
-<!-- FLOAT WA -->
-<a id="float-wa" href="#" target="_blank" title="Falar no WhatsApp">💬</a>
+<!-- Service Modal -->
+<div class="modal-overlay" id="modal-service">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-title">Novo Serviço</div>
+      <button class="modal-close" onclick="closeModal('modal-service')">✕</button>
+    </div>
+    <div class="form-group">
+      <label>Nome do Serviço</label>
+      <input type="text" class="form-control" id="svc-name" placeholder="Ex: Desenvolvimento Web Premium">
+    </div>
+    <div class="form-group">
+      <label>Descrição</label>
+      <textarea class="form-control" id="svc-desc" placeholder="Descreva o que está incluso neste serviço..."></textarea>
+    </div>
+    <div class="grid-2">
+      <div class="form-group">
+        <label>Emoji / Ícone</label>
+        <input type="text" class="form-control" id="svc-emoji" value="🚀">
+      </div>
+      <div class="form-group">
+        <label>Preço (opcional)</label>
+        <input type="text" class="form-control" id="svc-price" placeholder="A partir de R$1.500">
+      </div>
+    </div>
+    <div style="display:flex;gap:10px;justify-content:flex-end;margin-top:8px">
+      <button class="btn btn-ghost" onclick="closeModal('modal-service')">Cancelar</button>
+      <button class="btn btn-primary" onclick="saveService()">Salvar Serviço</button>
+    </div>
+  </div>
+</div>
+
+<!-- Lead Modal -->
+<div class="modal-overlay" id="modal-lead">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-title">Novo Lead</div>
+      <button class="modal-close" onclick="closeModal('modal-lead')">✕</button>
+    </div>
+    <div class="form-group">
+      <label>Nome</label>
+      <input type="text" class="form-control" id="lead-name" placeholder="Nome do cliente">
+    </div>
+    <div class="form-group">
+      <label>Email</label>
+      <input type="email" class="form-control" id="lead-email" placeholder="email@exemplo.com">
+    </div>
+    <div class="form-group">
+      <label>Telefone / WhatsApp</label>
+      <input type="text" class="form-control" id="lead-phone" placeholder="(00) 00000-0000">
+    </div>
+    <div class="form-group">
+      <label>Interesse / Projeto</label>
+      <input type="text" class="form-control" id="lead-interest" placeholder="Ex: Landing page, loja virtual...">
+    </div>
+    <div class="form-group">
+      <label>Orçamento Estimado</label>
+      <input type="text" class="form-control" id="lead-budget" placeholder="R$ 1.000 – R$ 5.000">
+    </div>
+    <div class="form-group">
+      <label>Estágio</label>
+      <select class="form-control" id="lead-stage">
+        <option value="novo">Novo Lead</option>
+        <option value="contato">Em Contato</option>
+        <option value="proposta">Proposta Enviada</option>
+        <option value="fechado">Fechado</option>
+      </select>
+    </div>
+    <div style="display:flex;gap:10px;justify-content:flex-end;margin-top:8px">
+      <button class="btn btn-ghost" onclick="closeModal('modal-lead')">Cancelar</button>
+      <button class="btn btn-primary" onclick="saveLead()">Salvar Lead</button>
+    </div>
+  </div>
+</div>
+
+<!-- Toast Container -->
+<div id="toast-container"></div>
 
 <script src="app.js"></script>
 </body>
